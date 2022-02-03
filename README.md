@@ -1,9 +1,7 @@
 # Airline-Routes-API
-Aviation Edge Airline Routes  API provides static data on routes of operating airlines. The API focuses on general information, so updateable information such as the flight times, dates, delays, cancellations, are not included in this API. If you are looking for these, please see our [Schedules API](https://github.com/AviationEdgeAPI/Airport-Schedules-API) instead or contact us below for the details.
+[Aviation Edge Airline Routes API](https://aviation-edge.com/airline-routes-database-and-api/) provides static data on routes of operating airlines. The API focuses on general information, so updateable information such as the flight times, dates, delays, cancellations, are not included in this API. If you are looking for these, please see our [Schedules API](https://github.com/AviationEdgeAPI/Airport-Schedules-API) instead or contact us below for the details.
 
 The API has global coverage with the exception of military, private and other non-scheduled routes. When implemented, the users can view the possible flight options from airport A to airport B. This can be filtered further based on airlines.
-
-[Get your API key](https://aviation-edge.com/premium-api/) in a minute and start testing the data right away. The API is provided through API subscriptions. All plans grant access to the Future Schedules API and other APIs with a difference of the monthly API call limit. Choose the best plan for you and upgrade, downgrade or cancel your plan anytime without  commitments.
 
 ### Documentation
 You may find input parameters, output examples with explanations for each item, filter list, and more in the [documentation](https://aviation-edge.com/developers/).
@@ -53,7 +51,9 @@ Data on a specific route:
 ]
 ```
 
-### Questions & Support
+### Access & Support
+[Get your API key](https://aviation-edge.com/premium-api/) in a minute and start testing the data right away. The API is provided through API subscriptions. All plans grant access to the Future Schedules API and other APIs with a difference of the monthly API call limit. Choose the best plan for you and upgrade, downgrade or cancel your plan anytime without  commitments.
+
 [Contact us](https://aviation-edge.com/contact/) via email for any questions or support requests.
 
 ### License
