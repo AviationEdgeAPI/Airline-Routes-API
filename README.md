@@ -15,19 +15,19 @@ You may find input parameters, output examples with explanations for each item, 
 ### Request 
 Static data on routes related to specific airports, airlines or flights:
 
-**GET** http://aviation-edge.com/v2/public/routes?key=[API_KEY]&departureIata=IAH
+**GET** `http://aviation-edge.com/v2/public/routes?key=[API_KEY]&departureIata=IAH`
 
-**GET** http://aviation-edge.com/v2/public/routes?key=[API_KEY]&departureIcao=KIAH
+**GET** `http://aviation-edge.com/v2/public/routes?key=[API_KEY]&departureIcao=KIAH`
 
-**GET** http://aviation-edge.com/v2/public/routes?key=[API_KEY]&airlineIata=AA
+**GET** `http://aviation-edge.com/v2/public/routes?key=[API_KEY]&airlineIata=AA`
 
-**GET** http://aviation-edge.com/v2/public/routes?key=[API_KEY]&airlineIcao=AAL
+**GET** `http://aviation-edge.com/v2/public/routes?key=[API_KEY]&airlineIcao=AAL`
 
-**GET** http://aviation-edge.com/v2/public/routes?key=[API_KEY]&flightNumber=2668
+**GET** `http://aviation-edge.com/v2/public/routes?key=[API_KEY]&flightNumber=2668`
 
 Data on a specific route:
 
-**GET** http://aviation-edge.com/v2/public/routes?key=[API_KEY]&departureIata=IAH&departureIcao=KIAH&airlineIata=AA&airlineIcao=AAL&flightNumber=2668
+**GET** `http://aviation-edge.com/v2/public/routes?key=[API_KEY]&departureIata=IAH&departureIcao=KIAH&airlineIata=AA&airlineIcao=AAL&flightNumber=2668`
 
 (only one code is enough per data -either the IATA or the ICAO code-, both is not obligatory.)
 
