@@ -1,5 +1,5 @@
 # Airline-Routes-API
-[Aviation Edge Airline Routes API](https://aviation-edge.com/airline-routes-database-and-api/) provides static data on routes of operating airlines. The API focuses on general information, so updateable information such as the flight times, dates, delays, cancellations, are not included in this API. If you are looking for these, please see our [Schedules API](https://github.com/AviationEdgeAPI/Airport-Schedules-API) instead or contact us below for the details.
+[Aviation Edge Airline Routes API](https://aviation-edge.com/airline-routes-database-and-api/) provides static data on routes of operating airlines. The API focuses on general information that does not require real-time updates, so this type of details such as flight times, dates, delays, cancellations, are not included in this API. If you are looking for these, please see our [Real-time Airport Schedules API](https://github.com/AviationEdgeAPI/Airport-Schedules-API) instead or contact us below for the details.
 
 The API has global coverage with the exception of military, private and other non-scheduled routes. When implemented, the users can view the possible flight options from airport A to airport B. This can be filtered further based on airlines.
 
@@ -29,7 +29,66 @@ Data on a specific route:
 
 **GET** `https://aviation-edge.com/v2/public/routes?key=[API_KEY]&departureIata=IAH&departureIcao=KIAH&airlineIata=AA&airlineIcao=AAL&flightNumber=2668`
 
-(only one code is enough per data -either the IATA or the ICAO code-, both is not obligatory.)
+(only one code is enough per data -either the IATA or the ICAO code-, both are not obligatory.)
+
+### Useful Code Examples
+
+1.	Fetching the Data With the API
+
+```
+const axios = require('axios');
+
+const API_KEY = 'YOUR_API_KEY';  // Replace with your actual API key
+const endpointUrl = `https://aviation-edge.com/v2/public/routes?key=${API_KEY}&departureIata=OTP`;
+
+async function fetchData() {
+    try {
+        const response = await axios.get(endpointUrl);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+fetchData().then(data => {
+    console.log(data);
+});
+```
+
+2.	Filtering routes
+
+When you have multiple routes in your response, you might want to filter routes by a specific arrival airport (please see “Request” section for other available parameters). Here's a snippet to achieve that:
+
+```
+function filterByArrivalIata(data, arrivalIata) {
+    return data.filter(route => route.arrivalIata === arrivalIata);
+}
+
+// Example usage
+fetchData().then(data => {
+    const routesToTRF = filterByArrivalIata(data, 'TRF');
+    console.log(routesToTRF);
+});
+```
+
+3.	Displaying routes in a more readable format
+
+```
+function displayRoute(route) {
+    console.log(`Flight No: ${route.flightNumber}`);
+    console.log(`From ${route.departureIata} (${route.departureTime}) to ${route.arrivalIata} (${route.arrivalTime})`);
+    console.log(`Airlines: ${route.airlineIata}`);
+    console.log(`Registration Numbers: ${route.regNumber}`);
+}
+
+// Example usage
+fetchData().then(data => {
+    data.forEach(route => {
+        displayRoute(route);
+        console.log('----------------------');  // Separator
+    });
+});
+```
 
 ### Response
 ```
@@ -58,4 +117,3 @@ Data on a specific route:
 
 ### License
 The use of the API is subject to Aviation Edge [Terms and Conditions](https://aviation-edge.com/api-terms-of-service/).
-
